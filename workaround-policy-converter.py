@@ -22,6 +22,7 @@ def fix_policy_file(json_path):
         
         with open(f"{os.path.split(json_path)[0]}/fixed-{os.path.split(json_path)[1]}", 'w') as w:
             json.dump(json_parsed, w, indent=4)
+            input("Done, Press ENTER to continue.")
 
 
     
