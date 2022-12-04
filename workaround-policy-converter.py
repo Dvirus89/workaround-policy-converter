@@ -14,9 +14,7 @@ def fix_policy_file(json_path):
         sig_sets= json_parsed['policy']['signature-sets']
         
         for obj_sigset_list in sig_sets:
-            if 'signatureSet' in obj_sigset_list:
-                if 'filter' in obj_sigset_list['signatureSet']:
-                    if 'attackTypeReference' in obj_sigset_list['signatureSet']['filter']:
+            if 'signatureSet' in obj_sigset_list and 'filter' in obj_sigset_list['signatureSet'] and 'attackTypeReference' in obj_sigset_list['signatureSet']['filter']:
                         obj_sigset_list['signatureSet']['filter']['attackType'] = obj_sigset_list['signatureSet']['filter'].pop('attackTypeReference')
                         del obj_sigset_list['signatureSet']['filter']['attackType']['link']
         
